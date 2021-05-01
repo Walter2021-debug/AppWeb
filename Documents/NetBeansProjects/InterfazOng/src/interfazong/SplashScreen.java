@@ -19,11 +19,14 @@ public class SplashScreen extends javax.swing.JFrame implements Runnable {
      * Creates new form SplashScreen
      */
     Thread t;
+    static final int MY_MINIMUM = 0;
+    static final int MY_MAXIMUM = 100;
     
     public SplashScreen() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        
     }
 
     /**
@@ -37,6 +40,7 @@ public class SplashScreen extends javax.swing.JFrame implements Runnable {
 
         logo = new javax.swing.JLabel();
         carga = new javax.swing.JProgressBar();
+        etiqueta1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -45,23 +49,32 @@ public class SplashScreen extends javax.swing.JFrame implements Runnable {
 
         carga.setStringPainted(true);
 
+        etiqueta1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(carga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(carga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(etiqueta1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(etiqueta1)
                 .addGap(18, 18, 18)
                 .addComponent(carga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -106,18 +119,27 @@ public class SplashScreen extends javax.swing.JFrame implements Runnable {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar carga;
+    private javax.swing.JLabel etiqueta1;
     private javax.swing.JLabel logo;
     // End of variables declaration//GEN-END:variables
+    
 
+    
     @Override
     public void run() {
         try {
             carga = new JProgressBar();
-            for (int i = 0; i < carga.getMaximum(); i++) {
-                carga.setValue(carga.getMinimum() + i);
+            carga.setValue(MY_MINIMUM);
+            carga.setMinimum(MY_MINIMUM);
+            carga.setMaximum(MY_MAXIMUM);
+            for (int i = MY_MINIMUM; i < MY_MAXIMUM; i++) {
+                final int porcentaje = i;
+                carga.setValue(porcentaje);
+                etiqueta1.setText("Cargando...");
+                carga.setStringPainted(true);
+                carga.getValue();
             }
             t.sleep(5000);
-            
             this.dispose();
             new Login();
         } catch (Exception ex) {

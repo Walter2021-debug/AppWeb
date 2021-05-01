@@ -5,34 +5,25 @@
  */
 package interfazong;
 
-import imagenes.Navegacion;
-import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JTable;
 
 /**
  *
  * @author Usuario
  */
-public class Menu extends javax.swing.JFrame implements ActionListener {
+public class NuevoRol extends javax.swing.JFrame implements ActionListener {
 
     /**
-     * Creates new form Menu
+     * Creates new form NuevoRol
      */
-    
-    public Menu() {
+    public NuevoRol() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setTitle("Menu");
+         this.setLocationRelativeTo(null);
+        this.setTitle("Usuarios");
         menu = new JMenuBar();
         this.setJMenuBar(menu);
         opcion1 = new JMenu("Opciones");
@@ -64,7 +55,12 @@ public class Menu extends javax.swing.JFrame implements ActionListener {
         elemento3 = new JMenuItem("Salir");
         elemento3.addActionListener(this);
         opcion1.add(elemento3);
-       
+        etiqueta1.setText("Nombre Rol: ");
+        caja1.setText("");
+        etiqueta2.setText("Descripción: ");
+        area1.setText("");
+        boton1.setText("Crear Rol");
+        boton2.setText("Cancelar");
     }
 
     /**
@@ -77,6 +73,13 @@ public class Menu extends javax.swing.JFrame implements ActionListener {
     private void initComponents() {
 
         contenedor = new javax.swing.JPanel();
+        etiqueta1 = new javax.swing.JLabel();
+        etiqueta2 = new javax.swing.JLabel();
+        caja1 = new javax.swing.JTextField();
+        panel1 = new javax.swing.JScrollPane();
+        area1 = new javax.swing.JTextArea();
+        boton1 = new javax.swing.JButton();
+        boton2 = new javax.swing.JButton();
         menu = new javax.swing.JMenuBar();
         opcion1 = new javax.swing.JMenu();
         elemento1 = new javax.swing.JMenuItem();
@@ -91,15 +94,55 @@ public class Menu extends javax.swing.JFrame implements ActionListener {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        etiqueta1.setText("jLabel1");
+
+        etiqueta2.setText("jLabel1");
+
+        caja1.setText("jTextField1");
+
+        area1.setColumns(20);
+        area1.setRows(5);
+        panel1.setViewportView(area1);
+
+        boton1.setText("jButton1");
+
+        boton2.setText("jButton1");
+
         javax.swing.GroupLayout contenedorLayout = new javax.swing.GroupLayout(contenedor);
         contenedor.setLayout(contenedorLayout);
         contenedorLayout.setHorizontalGroup(
             contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 723, Short.MAX_VALUE)
+            .addGroup(contenedorLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(etiqueta1)
+                    .addComponent(etiqueta2))
+                .addGap(54, 54, 54)
+                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(caja1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(contenedorLayout.createSequentialGroup()
+                        .addComponent(boton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(boton2)))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
         contenedorLayout.setVerticalGroup(
             contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 293, Short.MAX_VALUE)
+            .addGroup(contenedorLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiqueta1)
+                    .addComponent(caja1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(etiqueta2)
+                    .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boton1)
+                    .addComponent(boton2))
+                .addGap(53, 53, 53))
         );
 
         opcion1.setText("File");
@@ -146,9 +189,9 @@ public class Menu extends javax.swing.JFrame implements ActionListener {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(contenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -172,25 +215,29 @@ public class Menu extends javax.swing.JFrame implements ActionListener {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NuevoRol.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NuevoRol.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NuevoRol.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NuevoRol.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new NuevoRol().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea area1;
+    private javax.swing.JButton boton1;
+    private javax.swing.JButton boton2;
+    private javax.swing.JTextField caja1;
     private javax.swing.JPanel contenedor;
     private javax.swing.JMenuItem elemento1;
     private javax.swing.JMenuItem elemento2;
@@ -201,15 +248,17 @@ public class Menu extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JMenuItem elemento7;
     private javax.swing.JMenuItem elemento8;
     private javax.swing.JMenuItem elemento9;
+    private javax.swing.JLabel etiqueta1;
+    private javax.swing.JLabel etiqueta2;
     private javax.swing.JMenuBar menu;
     private javax.swing.JMenu opcion1;
+    private javax.swing.JScrollPane panel1;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Perfil perfil = new Perfil();
         Contacto contacto = new Contacto();
-        Usuarios usuarios = new Usuarios();
         Roles roles = new Roles();
         Permisos permisos = new Permisos();
         Productos productos = new Productos();
@@ -223,10 +272,6 @@ public class Menu extends javax.swing.JFrame implements ActionListener {
         }
         if (e.getSource()==elemento2) {
             contacto.setVisible(true);
-            this.dispose();
-        }
-        if (e.getSource() == elemento4) {
-            usuarios.setVisible(true);
             this.dispose();
         }
         if (e.getSource() == elemento5) {
@@ -252,6 +297,6 @@ public class Menu extends javax.swing.JFrame implements ActionListener {
         if (e.getSource()==elemento3) {
             login.setVisible(true);
             this.dispose();
-        }   
+        }
     }
 }

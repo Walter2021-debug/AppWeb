@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package iu;
+package interfazong;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -66,7 +66,7 @@ public class NuevoUsuario extends javax.swing.JFrame implements ActionListener {
         etiqueta5.setText("Imagen: ");
         etiqueta6.setText("");
         boton1.setText("Seleccionar imagen...");
-        boton2.setText("Crear");
+        boton2.setText("Crear usuario");
         boton3.setText("Cancelar");
     }
 
