@@ -85,14 +85,12 @@
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="boton3" pref="145" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="caja1" max="32767" attributes="0"/>
-                                  <Component id="caja2" max="32767" attributes="0"/>
-                                  <Component id="caja3" pref="145" max="32767" attributes="0"/>
-                                  <Component id="caja4" max="32767" attributes="0"/>
-                                  <Component id="boton1" max="32767" attributes="0"/>
-                                  <Component id="boton2" alignment="0" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="caja1" max="32767" attributes="0"/>
+                              <Component id="caja2" max="32767" attributes="0"/>
+                              <Component id="caja3" pref="145" max="32767" attributes="0"/>
+                              <Component id="caja4" max="32767" attributes="0"/>
+                              <Component id="boton1" max="32767" attributes="0"/>
+                              <Component id="boton2" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
