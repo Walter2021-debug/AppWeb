@@ -98,15 +98,30 @@ public class Registrarse extends javax.swing.JFrame {
 
         boton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         boton1.setText("jButton1");
+        boton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton1ActionPerformed(evt);
+            }
+        });
 
         etiqueta6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         etiqueta6.setText("jLabel9");
 
         boton2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         boton2.setText("jButton2");
+        boton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton2ActionPerformed(evt);
+            }
+        });
 
         boton3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         boton3.setText("jButton3");
+        boton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout contenedorLayout = new javax.swing.GroupLayout(contenedor);
         contenedor.setLayout(contenedorLayout);
@@ -115,28 +130,26 @@ public class Registrarse extends javax.swing.JFrame {
             .addGroup(contenedorLayout.createSequentialGroup()
                 .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(contenedorLayout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(etiqueta6))
+                        .addGap(133, 133, 133)
+                        .addComponent(boton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(boton3))
                     .addGroup(contenedorLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(etiqueta4)
-                                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(etiqueta1)
-                                    .addComponent(etiqueta2)
-                                    .addComponent(etiqueta3)))
+                        .addGap(44, 44, 44)
+                        .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(etiqueta2)
+                            .addComponent(etiqueta1)
+                            .addComponent(etiqueta3)
+                            .addComponent(etiqueta4)
                             .addComponent(etiqueta5))
-                        .addGap(34, 34, 34)
+                        .addGap(83, 83, 83)
                         .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(boton3, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                            .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(caja1)
-                                .addComponent(caja2)
-                                .addComponent(caja3, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                                .addComponent(caja4)
-                                .addComponent(boton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(boton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addComponent(etiqueta6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(caja1)
+                            .addComponent(caja2)
+                            .addComponent(caja3, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                            .addComponent(caja4)
+                            .addComponent(boton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(113, Short.MAX_VALUE))
         );
         contenedorLayout.setVerticalGroup(
@@ -164,11 +177,11 @@ public class Registrarse extends javax.swing.JFrame {
                     .addComponent(boton1))
                 .addGap(18, 18, 18)
                 .addComponent(etiqueta6)
-                .addGap(18, 18, 18)
-                .addComponent(boton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(boton3)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boton3)
+                    .addComponent(boton2))
+                .addGap(34, 34, 34))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -190,6 +203,21 @@ public class Registrarse extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton1ActionPerformed
+
+    private void boton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton2ActionPerformed
+
+    private void boton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton3ActionPerformed
+        // TODO add your handling code here:
+        Login login = new Login();
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_boton3ActionPerformed
 
     /**
      * @param args the command line arguments

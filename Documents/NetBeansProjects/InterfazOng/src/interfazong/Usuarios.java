@@ -55,7 +55,7 @@ public class Usuarios extends javax.swing.JFrame implements ActionListener {
         elemento3 = new JMenuItem("Salir");
         elemento3.addActionListener(this);
         opcion1.add(elemento3);
-        boton1.setText("Crear Usuario");
+        boton1.setText("Crear usuario");
     }
 
     /**
@@ -131,9 +131,9 @@ public class Usuarios extends javax.swing.JFrame implements ActionListener {
         contenedorLayout.setHorizontalGroup(
             contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenedorLayout.createSequentialGroup()
-                .addGap(274, 274, 274)
+                .addGap(266, 266, 266)
                 .addComponent(boton1)
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addGap(282, 282, 282))
             .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(contenedorLayout.createSequentialGroup()
                     .addContainerGap()
@@ -143,9 +143,9 @@ public class Usuarios extends javax.swing.JFrame implements ActionListener {
         contenedorLayout.setVerticalGroup(
             contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorLayout.createSequentialGroup()
-                .addContainerGap(204, Short.MAX_VALUE)
+                .addGap(210, 210, 210)
                 .addComponent(boton1)
-                .addGap(30, 30, 30))
+                .addGap(24, 24, 24))
             .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(contenedorLayout.createSequentialGroup()
                     .addContainerGap()

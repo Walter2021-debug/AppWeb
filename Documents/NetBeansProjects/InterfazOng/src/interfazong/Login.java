@@ -168,8 +168,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         Registrarse register = new Registrarse();
         register.setVisible(true);
-        Login login = new Login();
-        login.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_registrarse
 
     /**

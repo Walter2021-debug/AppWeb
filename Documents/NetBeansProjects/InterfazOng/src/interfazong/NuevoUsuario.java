@@ -23,7 +23,7 @@ public class NuevoUsuario extends javax.swing.JFrame implements ActionListener {
     public NuevoUsuario() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Usuarios");
+        this.setTitle("Nuevo usuario");
         menu = new JMenuBar();
         this.setJMenuBar(menu);
         opcion1 = new JMenu("Opciones");
@@ -66,7 +66,7 @@ public class NuevoUsuario extends javax.swing.JFrame implements ActionListener {
         etiqueta5.setText("Imagen: ");
         etiqueta6.setText("");
         boton1.setText("Seleccionar imagen...");
-        boton2.setText("Crear usuario");
+        boton2.setText("Crear");
         boton3.setText("Cancelar");
     }
 
@@ -150,6 +150,11 @@ public class NuevoUsuario extends javax.swing.JFrame implements ActionListener {
 
         boton3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         boton3.setText("jButton2");
+        boton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout contenedorLayout = new javax.swing.GroupLayout(contenedor);
         contenedor.setLayout(contenedorLayout);
@@ -158,37 +163,29 @@ public class NuevoUsuario extends javax.swing.JFrame implements ActionListener {
             .addGroup(contenedorLayout.createSequentialGroup()
                 .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(contenedorLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(boton1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(contenedorLayout.createSequentialGroup()
-                                    .addComponent(etiqueta4)
-                                    .addGap(97, 97, 97)
-                                    .addComponent(caja4, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorLayout.createSequentialGroup()
-                                    .addComponent(boton2)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(boton3))
-                                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(caja2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(contenedorLayout.createSequentialGroup()
-                                        .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(etiqueta1)
-                                            .addComponent(etiqueta2)
-                                            .addComponent(etiqueta3)
-                                            .addComponent(etiqueta5))
-                                        .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(contenedorLayout.createSequentialGroup()
-                                                .addGap(97, 97, 97)
-                                                .addComponent(caja3, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorLayout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(caja1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                        .addGap(31, 31, 31)
+                        .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(etiqueta1)
+                            .addComponent(etiqueta2)
+                            .addComponent(etiqueta3)
+                            .addComponent(etiqueta5)
+                            .addComponent(etiqueta4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(caja4, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(caja1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(caja2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(caja3, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(etiqueta6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(boton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE))))
                     .addGroup(contenedorLayout.createSequentialGroup()
-                        .addGap(210, 210, 210)
-                        .addComponent(etiqueta6)))
-                .addContainerGap(150, Short.MAX_VALUE))
+                        .addGap(147, 147, 147)
+                        .addComponent(boton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(boton3)
+                        .addGap(0, 8, Short.MAX_VALUE)))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
         contenedorLayout.setVerticalGroup(
             contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,7 +212,7 @@ public class NuevoUsuario extends javax.swing.JFrame implements ActionListener {
                     .addComponent(boton1))
                 .addGap(18, 18, 18)
                 .addComponent(etiqueta6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addGap(49, 49, 49)
                 .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boton2)
                     .addComponent(boton3))
@@ -259,7 +256,7 @@ public class NuevoUsuario extends javax.swing.JFrame implements ActionListener {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 482, Short.MAX_VALUE)
+            .addGap(0, 467, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -288,6 +285,12 @@ public class NuevoUsuario extends javax.swing.JFrame implements ActionListener {
         Usuarios usuarios = new Usuarios();
         usuarios.setVisible(true);
     }//GEN-LAST:event_boton2ActionPerformed
+
+    private void boton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton3ActionPerformed
+        Usuarios usuarios = new Usuarios();
+        usuarios.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_boton3ActionPerformed
 
     /**
      * @param args the command line arguments
