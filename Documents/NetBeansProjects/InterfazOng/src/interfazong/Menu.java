@@ -77,6 +77,7 @@ public class Menu extends javax.swing.JFrame implements ActionListener {
     private void initComponents() {
 
         contenedor = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         menu = new javax.swing.JMenuBar();
         opcion1 = new javax.swing.JMenu();
         elemento1 = new javax.swing.JMenuItem();
@@ -91,16 +92,10 @@ public class Menu extends javax.swing.JFrame implements ActionListener {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout contenedorLayout = new javax.swing.GroupLayout(contenedor);
-        contenedor.setLayout(contenedorLayout);
-        contenedorLayout.setHorizontalGroup(
-            contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 723, Short.MAX_VALUE)
-        );
-        contenedorLayout.setVerticalGroup(
-            contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 293, Short.MAX_VALUE)
-        );
+        contenedor.setLayout(new java.awt.CardLayout(3, 3));
+
+        jButton1.setText("jButton1");
+        contenedor.add(jButton1, "card2");
 
         opcion1.setText("File");
 
@@ -201,6 +196,7 @@ public class Menu extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JMenuItem elemento7;
     private javax.swing.JMenuItem elemento8;
     private javax.swing.JMenuItem elemento9;
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenuBar menu;
     private javax.swing.JMenu opcion1;
     // End of variables declaration//GEN-END:variables

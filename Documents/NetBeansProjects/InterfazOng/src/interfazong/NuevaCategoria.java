@@ -226,7 +226,7 @@ public class NuevaCategoria extends javax.swing.JFrame implements ActionListener
         // TODO add your handling code here:
         String nombre = caja1.getText();
         String descripcion = area1.getText();
-        
+        // AQUI HAY QUE COMPROBAR CADA UNA DE LAS CAJAS Y ENVIAR LA INFORMACIÓN AL SERVIDOR MEDIANTE LOS SOCKETS
     }//GEN-LAST:event_boton1ActionPerformed
 
     private void boton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton2ActionPerformed

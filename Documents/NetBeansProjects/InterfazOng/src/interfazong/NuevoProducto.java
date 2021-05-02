@@ -64,8 +64,14 @@ public class NuevoProducto extends javax.swing.JFrame implements ActionListener 
         boton1.setText("");
         etiqueta4.setText("Imagen: ");
         boton2.setText("Seleccionar imagen...");
+        etiqueta6.setText("");
         etiqueta5.setText("QR: ");
         boton3.setText("Seleccionar qr...");
+        etiqueta7.setText("");
+        etiqueta8.setText("Colaborador: ");
+        combo1.addItem("Seleccionar colaborador");
+        etiqueta9.setText("Categoria: ");
+        combo2.addItem("Seleccionar categoria");
         boton4.setText("Crear Producto");
         boton5.setText("Cancelar");
     }
@@ -95,6 +101,10 @@ public class NuevoProducto extends javax.swing.JFrame implements ActionListener 
         boton5 = new javax.swing.JButton();
         etiqueta6 = new javax.swing.JLabel();
         etiqueta7 = new javax.swing.JLabel();
+        etiqueta8 = new javax.swing.JLabel();
+        etiqueta9 = new javax.swing.JLabel();
+        combo1 = new javax.swing.JComboBox<>();
+        combo2 = new javax.swing.JComboBox<>();
         menu = new javax.swing.JMenuBar();
         opcion1 = new javax.swing.JMenu();
         elemento1 = new javax.swing.JMenuItem();
@@ -178,35 +188,51 @@ public class NuevoProducto extends javax.swing.JFrame implements ActionListener 
         etiqueta7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         etiqueta7.setText("jLabel1");
 
+        etiqueta8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        etiqueta8.setText("jLabel1");
+
+        etiqueta9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        etiqueta9.setText("jLabel1");
+
+        combo1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        combo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        combo2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        combo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout contenedorLayout = new javax.swing.GroupLayout(contenedor);
         contenedor.setLayout(contenedorLayout);
         contenedorLayout.setHorizontalGroup(
             contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenedorLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(etiqueta2)
-                        .addComponent(etiqueta3)
-                        .addComponent(etiqueta4)
-                        .addComponent(etiqueta5))
-                    .addComponent(etiqueta1))
-                .addGap(51, 51, 51)
                 .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(etiqueta6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(caja1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(boton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(boton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorLayout.createSequentialGroup()
+                    .addComponent(etiqueta8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(etiqueta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(etiqueta3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(etiqueta4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(etiqueta5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(etiqueta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(etiqueta9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(contenedorLayout.createSequentialGroup()
                         .addComponent(boton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(boton5))
+                    .addGroup(contenedorLayout.createSequentialGroup()
+                        .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(combo1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(etiqueta6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(caja1)
+                            .addComponent(boton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                            .addComponent(boton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(caja3)
+                            .addComponent(caja2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(etiqueta7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(combo2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(boton5)
-                        .addGap(9, 9, 9))
-                    .addComponent(caja3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(caja2)
-                    .addComponent(etiqueta7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(boton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(boton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(140, 140, 140))
         );
         contenedorLayout.setVerticalGroup(
@@ -237,11 +263,19 @@ public class NuevoProducto extends javax.swing.JFrame implements ActionListener 
                     .addComponent(etiqueta5))
                 .addGap(18, 18, 18)
                 .addComponent(etiqueta7)
-                .addGap(29, 29, 29)
+                .addGap(39, 39, 39)
+                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiqueta8)
+                    .addComponent(combo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiqueta9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boton4)
                     .addComponent(boton5))
-                .addGap(29, 29, 29))
+                .addGap(30, 30, 30))
         );
 
         menu.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -301,22 +335,24 @@ public class NuevoProducto extends javax.swing.JFrame implements ActionListener 
 
     private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton1ActionPerformed
         // TODO add your handling code here:
-       // SELECCION DE LA FECHA Y INTRODUCCION EN LA CAJA3
+       /* SELECCION DE LA FECHA Y INTRODUCCION DE LA CADENA EN LA CAJA3, ANTES 
+          DE ESO ABRIR UN PANEL CON UNA TABLA PARA SELECCIONAR LA FECHA
+        */
     }//GEN-LAST:event_boton1ActionPerformed
 
     private void boton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton2ActionPerformed
         // TODO add your handling code here:
-        // SELECCION DE LA IMAGEN DEL PRODUCTO
+        // SELECCION DE LA IMAGEN DEL PRODUCTO Y MOSTRAR LA RUTA EN LA ETIQUETA6
     }//GEN-LAST:event_boton2ActionPerformed
 
     private void boton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton3ActionPerformed
         // TODO add your handling code here:
-        // SELECCION DE LA IMAGEN DE LA IMAGEN DEL CODIGO QR
+        // SELECCION DE LA IMAGEN DE LA IMAGEN DEL CODIGO QR Y MOSTRAR LA RUTA EN LA ETIQUETA7
     }//GEN-LAST:event_boton3ActionPerformed
 
     private void boton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton4ActionPerformed
         // TODO add your handling code here:
-        // CREACION DEL PRODUCTO
+        // CREACION DEL PRODUCTO, VALIDAR Y ENVIAR LA INFORMACIÓN AL SERVIDOR MEDIANTE SOCKETS
     }//GEN-LAST:event_boton4ActionPerformed
 
     private void boton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton5ActionPerformed
@@ -369,6 +405,8 @@ public class NuevoProducto extends javax.swing.JFrame implements ActionListener 
     private javax.swing.JTextField caja1;
     private javax.swing.JTextField caja2;
     private javax.swing.JTextField caja3;
+    private javax.swing.JComboBox<String> combo1;
+    private javax.swing.JComboBox<String> combo2;
     private javax.swing.JPanel contenedor;
     private javax.swing.JMenuItem elemento1;
     private javax.swing.JMenuItem elemento2;
@@ -386,6 +424,8 @@ public class NuevoProducto extends javax.swing.JFrame implements ActionListener 
     private javax.swing.JLabel etiqueta5;
     private javax.swing.JLabel etiqueta6;
     private javax.swing.JLabel etiqueta7;
+    private javax.swing.JLabel etiqueta8;
+    private javax.swing.JLabel etiqueta9;
     private javax.swing.JMenuBar menu;
     private javax.swing.JMenu opcion1;
     // End of variables declaration//GEN-END:variables
