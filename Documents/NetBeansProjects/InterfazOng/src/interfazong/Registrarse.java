@@ -5,6 +5,12 @@
  */
 package interfazong;
 
+import imagenes.LogicaNegocio;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -31,7 +37,7 @@ public class Registrarse extends javax.swing.JFrame {
         etiqueta6.setText("");
         boton2.setText("Registrar");
         boton3.setText("Cancelar");
-        
+
     }
 
     /**
@@ -206,10 +212,33 @@ public class Registrarse extends javax.swing.JFrame {
 
     private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton1ActionPerformed
         // TODO add your handling code here:
+        JFileChooser imagen = new JFileChooser();
+        imagen.showOpenDialog(this);
+        File fichero = imagen.getSelectedFile();
+        if (fichero != null) {
+            String ruta = fichero.getPath();
+            //ImageIcon imageIcon = new ImageIcon(ruta);
+            this.etiqueta6.setText(ruta);
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor seleccione un archivo");
+        }
+
     }//GEN-LAST:event_boton1ActionPerformed
 
     private void boton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton2ActionPerformed
         // TODO add your handling code here:
+        String username = caja1.getText();
+        String email = caja2.getText();
+        String password = caja3.getSelectedText();
+        String confirmarPassword = caja4.getSelectedText();
+        String picture = etiqueta6.getText();
+        if (validarDatos()) {
+            Menu menu = new Menu();
+            menu.setVisible(true);
+            Usuario usuario = new Usuario(username,email, password, picture);
+            LogicaNegocio.añadirCliente(usuario); 
+            this.dispose();
+        }
     }//GEN-LAST:event_boton2ActionPerformed
 
     private void boton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton3ActionPerformed
@@ -274,4 +303,23 @@ public class Registrarse extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
+
+    private boolean validarDatos() {
+        String caracterNumerico = "0123456789";
+        String msgError = "El nombre del usuario no debe empezar por un numero";
+        String msgWarning = "El nomnbre es obligatorio";
+        if (caja1.getText().startsWith(caracterNumerico)) {
+            JOptionPane.showMessageDialog(this, "Error", msgError, JOptionPane.ERROR_MESSAGE);
+            return false;
+        } else {
+            if (!(caja1.getText().isEmpty() && caja2.getText().isEmpty() && caja3.getSelectedText().isEmpty()
+                    && caja4.getSelectedText().isEmpty())) {
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(this, "Aviso", msgWarning, JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
+        }
+
+    }
 }

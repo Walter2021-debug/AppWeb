@@ -5,7 +5,6 @@
  */
 package interfazong;
 
-import imagenes.Navegacion;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Container;

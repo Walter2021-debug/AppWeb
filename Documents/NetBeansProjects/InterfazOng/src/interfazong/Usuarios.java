@@ -5,11 +5,15 @@
  */
 package interfazong;
 
+import componentead.Usuario;
+import imagenes.LogicaNegocio;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -56,8 +60,21 @@ public class Usuarios extends javax.swing.JFrame implements ActionListener {
         elemento3.addActionListener(this);
         opcion1.add(elemento3);
         boton1.setText("Crear usuario");
+        refrescarTabla();
     }
-
+    
+     private void refrescarTabla() {
+        DefaultTableModel dtm = new DefaultTableModel(); 
+        dtm.setColumnIdentifiers(new String[] {"USUARIO_ID","NOMBRE","EMAIL","CONTRASEÑA","IMAGEN"});
+        
+        List<Usuario> ListaUsuarios = LogicaNegocio.getListaUsuarios();
+        
+        for (Usuario usuario : ListaUsuarios) {
+            dtm.addRow(usuario.toArrayString());
+        }
+        this.tabla1.setModel(dtm);
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -90,13 +107,14 @@ public class Usuarios extends javax.swing.JFrame implements ActionListener {
 
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Título 5"
             }
         ));
         pestaña1.setViewportView(tabla1);
@@ -106,13 +124,14 @@ public class Usuarios extends javax.swing.JFrame implements ActionListener {
 
         tabla2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Título 5"
             }
         ));
         pestaña2.setViewportView(tabla2);

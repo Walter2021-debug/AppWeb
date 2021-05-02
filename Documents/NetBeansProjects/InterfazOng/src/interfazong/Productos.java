@@ -5,17 +5,57 @@
  */
 package interfazong;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
 /**
  *
  * @author Usuario
  */
-public class Productos extends javax.swing.JFrame {
+public class Productos extends javax.swing.JFrame implements ActionListener {
 
     /**
      * Creates new form Productos
      */
     public Productos() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("Productos");
+        menu = new JMenuBar();
+        this.setJMenuBar(menu);
+        opcion1 = new JMenu("Opciones");
+        menu.add(opcion1);
+        elemento1 = new JMenuItem("Perfil");
+        elemento1.addActionListener(this);
+        opcion1.add(elemento1);
+        elemento2 = new JMenuItem("Contacto");
+        elemento2.addActionListener(this);
+        opcion1.add(elemento2);
+        elemento4 = new JMenuItem("Usuarios");
+        elemento4.addActionListener(this);
+        opcion1.add(elemento4);
+        elemento5 = new JMenuItem("Roles");
+        elemento5.addActionListener(this);
+        opcion1.add(elemento5);
+        elemento6 = new JMenuItem("Permisos");
+        elemento6.addActionListener(this);
+        opcion1.add(elemento6);
+        elemento7 = new JMenuItem("Productos");
+        elemento7.addActionListener(this);
+        opcion1.add(elemento7);
+        elemento8 = new JMenuItem("Colaboradores");
+        elemento8.addActionListener(this);
+        opcion1.add(elemento8);
+        elemento9 = new JMenuItem("Categorias");
+        elemento9.addActionListener(this);
+        opcion1.add(elemento9);
+        elemento3 = new JMenuItem("Salir");
+        elemento3.addActionListener(this);
+        opcion1.add(elemento3);
+        boton1.setText("Crear producto");
     }
 
     /**
@@ -167,8 +207,8 @@ public class Productos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton1ActionPerformed
-        NuevoUsuario nuevoUsuario = new NuevoUsuario();
-        nuevoUsuario.setVisible(true);
+        NuevoProducto nuevoProducto = new NuevoProducto();
+        nuevoProducto.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_boton1ActionPerformed
 
@@ -227,4 +267,49 @@ public class Productos extends javax.swing.JFrame {
     private javax.swing.JTable tabla1;
     private javax.swing.JTable tabla2;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Perfil perfil = new Perfil();
+        Contacto contacto = new Contacto();
+        Roles roles = new Roles();
+        Permisos permisos = new Permisos();
+        Productos productos = new Productos();
+        Colaboradores colaboradores = new Colaboradores();
+        Categorias categorias = new Categorias();
+        Login login = new Login();
+        
+        if (e.getSource()==elemento1) {
+            perfil.setVisible(true);
+            this.dispose();
+        }
+        if (e.getSource()==elemento2) {
+            contacto.setVisible(true);
+            this.dispose();
+        }
+        if (e.getSource() == elemento5) {
+            roles.setVisible(true);
+            this.dispose();
+        }
+        if (e.getSource() == elemento6) {
+            permisos.setVisible(true);
+            this.dispose();
+        }
+        if (e.getSource() == elemento7) {
+            productos.setVisible(true);
+            this.dispose();
+        }
+        if (e.getSource() == elemento8) {
+            colaboradores.setVisible(true);
+            this.dispose();
+        }
+        if (e.getSource() == elemento9) {
+            categorias.setVisible(true);
+            this.dispose();
+        }
+        if (e.getSource()==elemento3) {
+            login.setVisible(true);
+            this.dispose();
+        }
+    }
 }

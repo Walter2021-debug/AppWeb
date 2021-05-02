@@ -208,8 +208,8 @@ public class Roles extends javax.swing.JFrame implements ActionListener {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton1ActionPerformed
-        NuevoUsuario nuevoUsuario = new NuevoUsuario();
-        nuevoUsuario.setVisible(true);
+        NuevoRol nuevoRol = new NuevoRol();
+        nuevoRol.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_boton1ActionPerformed
 
