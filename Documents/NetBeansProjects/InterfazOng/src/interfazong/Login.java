@@ -7,6 +7,7 @@ package interfazong;
 
 import imagenes.Logo;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,7 +25,8 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Login");
+        this.setTitle("Login");            
+        JOptionPane.showMessageDialog(rootPane, "Bienvenido a la aplicación AppONG", "AppONG", JOptionPane.DEFAULT_OPTION);
         logo = new Logo(logotipo);
         logotipo.add(logo).repaint();
         etiqueta1.setText("Usuario: ");
