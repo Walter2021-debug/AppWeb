@@ -5,6 +5,7 @@
  */
 package interfazong;
 
+import componentead.Usuario;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Container;
@@ -14,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
@@ -55,7 +57,8 @@ public class Menu extends javax.swing.JFrame implements ActionListener {
         boton6.setText("Categorias");
         boton7.setText("Gestión ERP");
         boton8.setText("Puntos de donación");
-       
+        Usuario usuario = new Usuario();
+        JOptionPane.showMessageDialog(null, "Bienvenido usuario" + usuario.getNombre(), "Mensaje", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
@@ -86,27 +89,67 @@ public class Menu extends javax.swing.JFrame implements ActionListener {
 
         boton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         boton1.setText("jButton1");
+        boton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton1ActionPerformed(evt);
+            }
+        });
 
         boton2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         boton2.setText("jButton1");
+        boton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton2ActionPerformed(evt);
+            }
+        });
 
         boton3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         boton3.setText("jButton1");
+        boton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton3ActionPerformed(evt);
+            }
+        });
 
         boton4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         boton4.setText("jButton1");
+        boton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton4ActionPerformed(evt);
+            }
+        });
 
         boton5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         boton5.setText("jButton1");
+        boton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton5ActionPerformed(evt);
+            }
+        });
 
         boton6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         boton6.setText("jButton1");
+        boton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton6ActionPerformed(evt);
+            }
+        });
 
         boton7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         boton7.setText("jButton1");
+        boton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton7ActionPerformed(evt);
+            }
+        });
 
         boton8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         boton8.setText("jButton1");
+        boton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout contenedorLayout = new javax.swing.GroupLayout(contenedor);
         contenedor.setLayout(contenedorLayout);
@@ -187,6 +230,62 @@ public class Menu extends javax.swing.JFrame implements ActionListener {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton1ActionPerformed
+        // TODO add your handling code here:
+        Usuarios usuarios = new Usuarios();
+        usuarios.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_boton1ActionPerformed
+
+    private void boton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton2ActionPerformed
+        // TODO add your handling code here:
+        Roles roles = new Roles();
+        roles.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_boton2ActionPerformed
+
+    private void boton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton3ActionPerformed
+        // TODO add your handling code here:
+        Permisos permisos = new Permisos();
+        permisos.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_boton3ActionPerformed
+
+    private void boton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton4ActionPerformed
+        // TODO add your handling code here:
+        Productos productos = new Productos();
+        productos.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_boton4ActionPerformed
+
+    private void boton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton5ActionPerformed
+        // TODO add your handling code here:
+        Colaboradores colaboradores = new Colaboradores();
+        colaboradores.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_boton5ActionPerformed
+
+    private void boton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton6ActionPerformed
+        // TODO add your handling code here:
+        Categorias categorias = new Categorias();
+        categorias.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_boton6ActionPerformed
+
+    private void boton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton7ActionPerformed
+        // TODO add your handling code here:
+        GestionERP gestionERP = new GestionERP();
+        gestionERP.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_boton7ActionPerformed
+
+    private void boton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton8ActionPerformed
+        // TODO add your handling code here:
+        PuntosDonacion puntosDonacion = new PuntosDonacion();
+        puntosDonacion.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_boton8ActionPerformed
 
     /**
      * @param args the command line arguments

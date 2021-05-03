@@ -233,12 +233,22 @@ public class Registrarse extends javax.swing.JFrame {
         String password = caja3.getSelectedText();
         String confirmarPassword = caja4.getSelectedText();
         String picture = etiqueta6.getText();
+        Usuario usuario = new Usuario(username, email, password, picture);
         if (validarDatos()) {
             Menu menu = new Menu();
             menu.setVisible(true);
-            Usuario usuario = new Usuario(username,email, password, picture);
-            LogicaNegocio.añadirUsuario(usuario); 
+            LogicaNegocio.añadirUsuario(usuario);
             this.dispose();
+
+        } else {
+            if (!usuario.getContrasena().equals(confirmarPassword)) {
+                JOptionPane.showMessageDialog(null, "La contraseña no coincide", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                Menu menu = new Menu();
+                menu.setVisible(true);
+                LogicaNegocio.añadirUsuario(usuario);
+                this.dispose();
+            }
         }
     }//GEN-LAST:event_boton2ActionPerformed
 
@@ -308,7 +318,7 @@ public class Registrarse extends javax.swing.JFrame {
     private boolean validarDatos() {
         String caracterNumerico = "0123456789";
         String msgError = "El nombre del usuario no debe empezar por un numero";
-        String msgWarning = "El nomnbre es obligatorio";
+        String msgWarning = "Toda la información es obligatorio";
         if (caja1.getText().startsWith(caracterNumerico)) {
             JOptionPane.showMessageDialog(this, "Error", msgError, JOptionPane.ERROR_MESSAGE);
             return false;

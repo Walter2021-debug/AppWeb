@@ -5,6 +5,8 @@
  */
 package interfazong;
 
+import componentead.Usuario;
+import imagenes.LogicaNegocio;
 import imagenes.Logo;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -26,7 +28,6 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Login");            
-        JOptionPane.showMessageDialog(rootPane, "Bienvenido a la aplicación AppONG", "AppONG", JOptionPane.DEFAULT_OPTION);
         logo = new Logo(logotipo);
         logotipo.add(logo).repaint();
         etiqueta1.setText("Usuario: ");
@@ -38,7 +39,8 @@ public class Login extends javax.swing.JFrame {
         boton1.setBackground(Color.decode(colorBoton));
         etiqueta3.setText("Registrarse");
         etiqueta3.setForeground(Color.decode(colorEnlace));
-        
+        JOptionPane.showMessageDialog(null, "Bienvenido a la aplicación AppONG", "AppONG", JOptionPane.DEFAULT_OPTION);
+
     }
 
     /**
@@ -94,6 +96,11 @@ public class Login extends javax.swing.JFrame {
 
         boton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         boton1.setText("jButton1");
+        boton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton1ActionPerformed(evt);
+            }
+        });
 
         etiqueta3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         etiqueta3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -173,6 +180,22 @@ public class Login extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_registrarse
 
+    private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton1ActionPerformed
+        // TODO add your handling code here:
+        String username = caja1.getText();
+        String pass = caja2.getSelectedText();
+        Usuario usuario = new Usuario(username, pass);
+        if (validarDatos()) {
+            if (!LogicaNegocio.getListaUsuarios().listIterator().equals(username)) {
+                JOptionPane.showMessageDialog(null, "El usuario no existe", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                Menu menu = new Menu();
+                menu.setVisible(true);
+                this.dispose();
+            }
+        }
+    }//GEN-LAST:event_boton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -219,4 +242,21 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel etiqueta3;
     private javax.swing.JPanel logotipo;
     // End of variables declaration//GEN-END:variables
+
+    private boolean validarDatos() {
+        String caracterNumerico = "0123456789";
+        String msgError = "El nombre del usuario no debe empezar por un numero";
+        String msgWarning = "Toda la información es obligatorio";
+        if (caja1.getText().startsWith(caracterNumerico)) {
+            JOptionPane.showMessageDialog(this, "Error", msgError, JOptionPane.ERROR_MESSAGE);
+            return false;
+        } else {
+            if (!(caja1.getText().isEmpty() && caja2.getSelectedText().isEmpty())) {
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(this, "Aviso", msgWarning, JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
+        }
+    }
 }
