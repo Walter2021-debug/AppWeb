@@ -189,13 +189,12 @@ public class Login extends javax.swing.JFrame {
         if (validarDatos()) {
             Iterator iterador = LogicaNegocio.getListaUsuarios().iterator();
             while (iterador.hasNext()) {
-                if (iterador.equals(username)) {
+                if (usuario.getNombre().equals(username)) {
                     Menu menu = new Menu();
                     menu.setVisible(true);
                     this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "El usuario no existe", "Error", JOptionPane.ERROR_MESSAGE);
-
                 }
             }
         }

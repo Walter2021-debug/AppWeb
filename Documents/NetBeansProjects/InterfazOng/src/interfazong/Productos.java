@@ -65,7 +65,7 @@ public class Productos extends javax.swing.JFrame implements ActionListener {
     
     private void refrescarTabla() {
         DefaultTableModel dtm = new DefaultTableModel(); 
-        dtm.setColumnIdentifiers(new String[] {"PRODUCTO_ID","NOMBRE","ENVASE","FECHA_CADUCIDAD","IMAGEN","QR","COLABORADOR","CATEGORIA"});
+        dtm.setColumnIdentifiers(new String[] {"PRODUCTO_ID","NOMBRE","ENVASE","FECHA_CADUCIDAD","IMAGEN","QR","COLABORADOR","CATEGORIA","ACCIÓN1","ACCIÓN2"});
         
         List<Producto> ListaProductos = LogicaNegocio.getListaProductos();
         
@@ -124,13 +124,13 @@ public class Productos extends javax.swing.JFrame implements ActionListener {
 
         tabla2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Título 5", "Título 6", "Título 7", "Título 8"
             }
         ));
         pestaña2.setViewportView(tabla2);

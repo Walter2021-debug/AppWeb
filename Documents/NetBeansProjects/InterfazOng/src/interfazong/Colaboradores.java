@@ -65,7 +65,7 @@ public class Colaboradores extends javax.swing.JFrame implements ActionListener 
     
     private void refrescarTabla() {
         DefaultTableModel dtm = new DefaultTableModel(); 
-        dtm.setColumnIdentifiers(new String[] {"COLABORADOR_ID","NOMBRE","EMAIL","TELEFONO","FOTO"});
+        dtm.setColumnIdentifiers(new String[] {"COLABORADOR_ID","NOMBRE","EMAIL","TELEFONO","FOTO","ACCIÓN1","ACCIÓN2"});
         
         List<Colaborador> ListaColaboradores = LogicaNegocio.getListaColaboradores();
         
@@ -73,7 +73,7 @@ public class Colaboradores extends javax.swing.JFrame implements ActionListener 
             dtm.addRow(colaborador.toArrayString());
         }
         this.tabla1.setModel(dtm);
-        this.tabla2.setModel(dtm);
+        //this.tabla2.setModel(dtm);
         
     }
     /**
@@ -108,14 +108,14 @@ public class Colaboradores extends javax.swing.JFrame implements ActionListener 
 
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Título 5"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Título 5", "Título 6", "Título 7"
             }
         ));
         pestaña1.setViewportView(tabla1);
@@ -124,14 +124,14 @@ public class Colaboradores extends javax.swing.JFrame implements ActionListener 
 
         tabla2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Título 5"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Título 5", "Título 6", "Título 7"
             }
         ));
         pestaña2.setViewportView(tabla2);
