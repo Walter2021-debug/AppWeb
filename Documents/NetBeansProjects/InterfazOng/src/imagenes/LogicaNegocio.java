@@ -5,6 +5,12 @@
  */
 package imagenes;
 
+import componentead.Categoria;
+import componentead.Colaborador;
+import componentead.Permiso;
+import componentead.Producto;
+import componentead.Rol;
+import componentead.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 

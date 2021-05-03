@@ -5,6 +5,7 @@
  */
 package interfazong;
 
+import componentead.Usuario;
 import imagenes.LogicaNegocio;
 import java.io.File;
 import javax.swing.ImageIcon;
@@ -236,7 +237,7 @@ public class Registrarse extends javax.swing.JFrame {
             Menu menu = new Menu();
             menu.setVisible(true);
             Usuario usuario = new Usuario(username,email, password, picture);
-            LogicaNegocio.añadirCliente(usuario); 
+            LogicaNegocio.añadirUsuario(usuario); 
             this.dispose();
         }
     }//GEN-LAST:event_boton2ActionPerformed

@@ -5,11 +5,15 @@
  */
 package interfazong;
 
+import componentead.Producto;
+import imagenes.LogicaNegocio;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -56,8 +60,22 @@ public class Productos extends javax.swing.JFrame implements ActionListener {
         elemento3.addActionListener(this);
         opcion1.add(elemento3);
         boton1.setText("Crear producto");
+        refrescarTabla();
     }
-
+    
+    private void refrescarTabla() {
+        DefaultTableModel dtm = new DefaultTableModel(); 
+        dtm.setColumnIdentifiers(new String[] {"PRODUCTO_ID","NOMBRE","ENVASE","FECHA_CADUCIDAD","IMAGEN","QR","COLABORADOR","CATEGORIA"});
+        
+        List<Producto> ListaProductos = LogicaNegocio.getListaProductos();
+        
+        for (Producto producto : ListaProductos) {
+            dtm.addRow(producto.toArrayString());
+        }
+        this.tabla1.setModel(dtm);
+        this.tabla2.setModel(dtm);
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -63,7 +63,7 @@ public class Usuarios extends javax.swing.JFrame implements ActionListener {
         refrescarTabla();
     }
     
-     private void refrescarTabla() {
+    private void refrescarTabla() {
         DefaultTableModel dtm = new DefaultTableModel(); 
         dtm.setColumnIdentifiers(new String[] {"USUARIO_ID","NOMBRE","EMAIL","CONTRASEÑA","IMAGEN"});
         
@@ -73,6 +73,7 @@ public class Usuarios extends javax.swing.JFrame implements ActionListener {
             dtm.addRow(usuario.toArrayString());
         }
         this.tabla1.setModel(dtm);
+        this.tabla2.setModel(dtm);
         
     }
     /**

@@ -5,11 +5,15 @@
  */
 package interfazong;
 
+import componentead.Permiso;
+import imagenes.LogicaNegocio;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -56,8 +60,22 @@ public class Permisos extends javax.swing.JFrame implements ActionListener {
         elemento3.addActionListener(this);
         opcion1.add(elemento3);
         boton1.setText("Crear permiso");
+        refrescarTabla();
     }
-
+    
+    private void refrescarTabla() {
+        DefaultTableModel dtm = new DefaultTableModel(); 
+        dtm.setColumnIdentifiers(new String[] {"PERMISO_ID","USUARIO","ROL"});
+        
+        List<Permiso> ListaPermisos = LogicaNegocio.getListaPermisos();
+        
+        for (Permiso permiso : ListaPermisos) {
+            dtm.addRow(permiso.toArrayString());
+        }
+        this.tabla1.setModel(dtm);
+        this.tabla2.setModel(dtm);
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
