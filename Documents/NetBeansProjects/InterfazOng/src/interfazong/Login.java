@@ -9,6 +9,7 @@ import componentead.Usuario;
 import imagenes.LogicaNegocio;
 import imagenes.Logo;
 import java.awt.Color;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,11 +24,11 @@ public class Login extends javax.swing.JFrame {
     Logo logo;
     String colorBoton = "#ffe395";
     String colorEnlace = "#0000ff";
-    
+
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Login");            
+        this.setTitle("Login");
         logo = new Logo(logotipo);
         logotipo.add(logo).repaint();
         etiqueta1.setText("Usuario: ");
@@ -186,12 +187,16 @@ public class Login extends javax.swing.JFrame {
         String pass = caja2.getSelectedText();
         Usuario usuario = new Usuario(username, pass);
         if (validarDatos()) {
-            if (!LogicaNegocio.getListaUsuarios().listIterator().equals(username)) {
-                JOptionPane.showMessageDialog(null, "El usuario no existe", "Error", JOptionPane.ERROR_MESSAGE);
-            } else {
-                Menu menu = new Menu();
-                menu.setVisible(true);
-                this.dispose();
+            Iterator iterador = LogicaNegocio.getListaUsuarios().iterator();
+            while (iterador.hasNext()) {
+                if (iterador.equals(username)) {
+                    Menu menu = new Menu();
+                    menu.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "El usuario no existe", "Error", JOptionPane.ERROR_MESSAGE);
+
+                }
             }
         }
     }//GEN-LAST:event_boton1ActionPerformed

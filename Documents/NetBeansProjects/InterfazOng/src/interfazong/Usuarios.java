@@ -70,9 +70,10 @@ public class Usuarios extends javax.swing.JFrame implements ActionListener {
         List<Usuario> ListaUsuarios = LogicaNegocio.getListaUsuarios();
         for (Usuario usuario : ListaUsuarios) {
             dtm.addRow(usuario.toArrayString());
+           
         }
         this.tabla1.setModel(dtm);
-        this.tabla2.setModel(dtm);
+        //this.tabla2.setModel(dtm);
         
     }
     /**
