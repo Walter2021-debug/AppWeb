@@ -5,11 +5,14 @@
  */
 package interfazong;
 
+import componentead.Rol;
+import imagenes.LogicaNegocio;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,7 +25,7 @@ public class NuevoRol extends javax.swing.JFrame implements ActionListener {
      */
     public NuevoRol() {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         this.setTitle("Nuevo rol");
         menu = new JMenuBar();
         this.setJMenuBar(menu);
@@ -105,8 +108,18 @@ public class NuevoRol extends javax.swing.JFrame implements ActionListener {
         panel1.setViewportView(area1);
 
         boton1.setText("jButton1");
+        boton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton1ActionPerformed(evt);
+            }
+        });
 
         boton2.setText("jButton1");
+        boton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout contenedorLayout = new javax.swing.GroupLayout(contenedor);
         contenedor.setLayout(contenedorLayout);
@@ -198,6 +211,34 @@ public class NuevoRol extends javax.swing.JFrame implements ActionListener {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton1ActionPerformed
+        // TODO add your handling code here:
+        String nombre = caja1.getText();
+        String descripcion = area1.getText();
+        Rol rol = new Rol(nombre,descripcion);
+        if (validarDatos()) {
+            if (rol.getNombre().length() <= 50) {
+                if (rol.getDescripcion().length() <= 100) {
+                    Roles roles = new Roles();
+                    roles.setVisible(true);
+                    LogicaNegocio.añadirRol(rol);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Error", "La descripcion del rol debe tener una longitud maxima de 100 caracteres", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Error", "El nombre del rol debe tener una longitud maxima de 50 caracteres", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_boton1ActionPerformed
+
+    private void boton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton2ActionPerformed
+        // TODO add your handling code here:
+        Roles roles = new Roles();
+        roles.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_boton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -265,12 +306,12 @@ public class NuevoRol extends javax.swing.JFrame implements ActionListener {
         Colaboradores colaboradores = new Colaboradores();
         Categorias categorias = new Categorias();
         Login login = new Login();
-        
-        if (e.getSource()==elemento1) {
+
+        if (e.getSource() == elemento1) {
             perfil.setVisible(true);
             this.dispose();
         }
-        if (e.getSource()==elemento2) {
+        if (e.getSource() == elemento2) {
             contacto.setVisible(true);
             this.dispose();
         }
@@ -294,9 +335,26 @@ public class NuevoRol extends javax.swing.JFrame implements ActionListener {
             categorias.setVisible(true);
             this.dispose();
         }
-        if (e.getSource()==elemento3) {
+        if (e.getSource() == elemento3) {
             login.setVisible(true);
             this.dispose();
+        }
+    }
+
+    private boolean validarDatos() {
+        String caracterNumerico = "0123456789";
+        String msgError = "El nombre del rol no debe empezar por un numero";
+        String msgWarning = "Toda la información del rol es obligatorio";
+        if (caja1.getText().startsWith(caracterNumerico) && area1.getText().startsWith(caracterNumerico)) {
+            JOptionPane.showMessageDialog(this, "Error", msgError, JOptionPane.ERROR_MESSAGE);
+            return false;
+        } else {
+            if (!caja1.getText().isEmpty() && !area1.getText().isEmpty()) {
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(this, "Aviso", msgWarning, JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
         }
     }
 }

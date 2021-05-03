@@ -284,12 +284,20 @@ public class NuevoUsuario extends javax.swing.JFrame implements ActionListener {
         String password = caja3.getSelectedText();
         String confirmarPassword = caja4.getSelectedText();
         String imagen = etiqueta6.getText();
-        Usuario usuario = new Usuario(nombre,email,password,imagen);
+        Usuario usuario = new Usuario(nombre, email, password, imagen);
         if (validarDatos()) {
-            
+            if (usuario.getContrasena().equalsIgnoreCase(confirmarPassword)) {
+                if (usuario.getContrasena().length() <= 50) {
+                    Usuarios usuarios = new Usuarios();
+                    usuarios.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Warning", "La contraseña debe tener una longigud maxima de 50 caracteres", JOptionPane.WARNING_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Error", "La contraseña no coincide", JOptionPane.ERROR_MESSAGE);
+            }
         }
-        Usuarios usuarios = new Usuarios();
-        usuarios.setVisible(true);
     }//GEN-LAST:event_boton2ActionPerformed
 
     private void boton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton3ActionPerformed
@@ -371,12 +379,12 @@ public class NuevoUsuario extends javax.swing.JFrame implements ActionListener {
         Colaboradores colaboradores = new Colaboradores();
         Categorias categorias = new Categorias();
         Login login = new Login();
-        
-        if (e.getSource()==elemento1) {
+
+        if (e.getSource() == elemento1) {
             perfil.setVisible(true);
             this.dispose();
         }
-        if (e.getSource()==elemento2) {
+        if (e.getSource() == elemento2) {
             contacto.setVisible(true);
             this.dispose();
         }
@@ -400,7 +408,7 @@ public class NuevoUsuario extends javax.swing.JFrame implements ActionListener {
             categorias.setVisible(true);
             this.dispose();
         }
-        if (e.getSource()==elemento3) {
+        if (e.getSource() == elemento3) {
             login.setVisible(true);
             this.dispose();
         }
@@ -409,7 +417,7 @@ public class NuevoUsuario extends javax.swing.JFrame implements ActionListener {
     private boolean validarDatos() {
         String caracterNumerico = "0123456789";
         String msgError = "El nombre del usuario no debe empezar por un numero";
-        String msgWarning = "Toda la información es obligatorio";
+        String msgWarning = "Toda la información del usuario es obligatorio";
         if (caja1.getText().startsWith(caracterNumerico) && caja2.getText().startsWith(caracterNumerico)
                 && caja3.getSelectedText().startsWith(caracterNumerico) && caja4.getSelectedText().startsWith(caracterNumerico)) {
             JOptionPane.showMessageDialog(this, "Error", msgError, JOptionPane.ERROR_MESSAGE);
