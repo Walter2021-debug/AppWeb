@@ -294,6 +294,7 @@ public class Usuarios extends javax.swing.JFrame implements ActionListener {
         Perfil perfil = new Perfil();
         Contacto contacto = new Contacto();
         Roles roles = new Roles();
+        Usuarios usuarios = new Usuarios();
         Permisos permisos = new Permisos();
         Productos productos = new Productos();
         Colaboradores colaboradores = new Colaboradores();
@@ -306,6 +307,10 @@ public class Usuarios extends javax.swing.JFrame implements ActionListener {
         }
         if (e.getSource()==elemento2) {
             contacto.setVisible(true);
+            this.dispose();
+        }
+        if (e.getSource()==elemento4) {
+            usuarios.setVisible(true);
             this.dispose();
         }
         if (e.getSource() == elemento5) {

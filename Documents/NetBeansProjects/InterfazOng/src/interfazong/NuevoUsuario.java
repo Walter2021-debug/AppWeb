@@ -8,6 +8,8 @@ package interfazong;
 import componentead.Usuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -138,6 +140,11 @@ public class NuevoUsuario extends javax.swing.JFrame implements ActionListener {
 
         boton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         boton1.setText("jButton1");
+        boton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton1ActionPerformed(evt);
+            }
+        });
 
         etiqueta6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         etiqueta6.setText("jLabel1");
@@ -286,17 +293,17 @@ public class NuevoUsuario extends javax.swing.JFrame implements ActionListener {
         String imagen = etiqueta6.getText();
         Usuario usuario = new Usuario(nombre, email, password, imagen);
         if (validarDatos()) {
-            if (usuario.getContrasena().equalsIgnoreCase(confirmarPassword)) {
-                if (usuario.getContrasena().length() <= 50) {
+            //if (usuario.getContrasena().equals(confirmarPassword)) {
+                //if (usuario.getContrasena().length() <= 50) {
                     Usuarios usuarios = new Usuarios();
                     usuarios.setVisible(true);
                     this.dispose();
-                } else {
+                /*} else {
                     JOptionPane.showMessageDialog(this, "Warning", "La contraseña debe tener una longigud maxima de 50 caracteres", JOptionPane.WARNING_MESSAGE);
-                }
-            } else {
+                }*/
+            /*} else {
                 JOptionPane.showMessageDialog(this, "Error", "La contraseña no coincide", JOptionPane.ERROR_MESSAGE);
-            }
+            }*/
         }
     }//GEN-LAST:event_boton2ActionPerformed
 
@@ -305,6 +312,20 @@ public class NuevoUsuario extends javax.swing.JFrame implements ActionListener {
         usuarios.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_boton3ActionPerformed
+
+    private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton1ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser imagen = new JFileChooser();
+        imagen.showOpenDialog(this);
+        File fichero = imagen.getSelectedFile();
+        if (fichero != null) {
+            String ruta = fichero.getPath();
+            //ImageIcon imageIcon = new ImageIcon(ruta);
+            this.etiqueta6.setText(ruta);
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor seleccione un archivo");
+        }
+    }//GEN-LAST:event_boton1ActionPerformed
 
     /**
      * @param args the command line arguments
