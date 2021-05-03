@@ -23,7 +23,7 @@ public class NuevoRol extends javax.swing.JFrame implements ActionListener {
     public NuevoRol() {
         initComponents();
          this.setLocationRelativeTo(null);
-        this.setTitle("Usuarios");
+        this.setTitle("Nuevo rol");
         menu = new JMenuBar();
         this.setJMenuBar(menu);
         opcion1 = new JMenu("Opciones");

@@ -5,11 +5,13 @@
  */
 package interfazong;
 
+import componentead.Usuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -282,6 +284,10 @@ public class NuevoUsuario extends javax.swing.JFrame implements ActionListener {
         String password = caja3.getSelectedText();
         String confirmarPassword = caja4.getSelectedText();
         String imagen = etiqueta6.getText();
+        Usuario usuario = new Usuario(nombre,email,password,imagen);
+        if (validarDatos()) {
+            
+        }
         Usuarios usuarios = new Usuarios();
         usuarios.setVisible(true);
     }//GEN-LAST:event_boton2ActionPerformed
@@ -397,6 +403,25 @@ public class NuevoUsuario extends javax.swing.JFrame implements ActionListener {
         if (e.getSource()==elemento3) {
             login.setVisible(true);
             this.dispose();
+        }
+    }
+
+    private boolean validarDatos() {
+        String caracterNumerico = "0123456789";
+        String msgError = "El nombre del usuario no debe empezar por un numero";
+        String msgWarning = "Toda la información es obligatorio";
+        if (caja1.getText().startsWith(caracterNumerico) && caja2.getText().startsWith(caracterNumerico)
+                && caja3.getSelectedText().startsWith(caracterNumerico) && caja4.getSelectedText().startsWith(caracterNumerico)) {
+            JOptionPane.showMessageDialog(this, "Error", msgError, JOptionPane.ERROR_MESSAGE);
+            return false;
+        } else {
+            if (!(caja1.getText().isEmpty() && caja2.getText().isEmpty() && caja3.getSelectedText().isEmpty()
+                    && caja4.getSelectedText().isEmpty())) {
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(this, "Aviso", msgWarning, JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
         }
     }
 }

@@ -23,7 +23,7 @@ public class NuevoColaborador extends javax.swing.JFrame implements ActionListen
     public NuevoColaborador() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Usuarios");
+        this.setTitle("Nuevo colaborador");
         menu = new JMenuBar();
         this.setJMenuBar(menu);
         opcion1 = new JMenu("Opciones");

@@ -22,7 +22,7 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     Logo logo;
-    String colorBoton = "#ffe395";
+    //String colorBoton = "#ffe395";
     String colorEnlace = "#0000ff";
 
     public Login() {
@@ -37,7 +37,7 @@ public class Login extends javax.swing.JFrame {
         caja2.setText("");
         casilla.setText("Recordar contraseña");
         boton1.setText("Entrar");
-        boton1.setBackground(Color.decode(colorBoton));
+        //boton1.setBackground(Color.decode(colorBoton));
         etiqueta3.setText("Registrarse");
         etiqueta3.setForeground(Color.decode(colorEnlace));
         JOptionPane.showMessageDialog(null, "Bienvenido a la aplicación AppONG", "AppONG", JOptionPane.DEFAULT_OPTION);

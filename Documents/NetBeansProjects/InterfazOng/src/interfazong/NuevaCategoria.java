@@ -23,7 +23,7 @@ public class NuevaCategoria extends javax.swing.JFrame implements ActionListener
     public NuevaCategoria() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Usuarios");
+        this.setTitle("Nueva categoria");
         menu = new JMenuBar();
         this.setJMenuBar(menu);
         opcion1 = new JMenu("Opciones");

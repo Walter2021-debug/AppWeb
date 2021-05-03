@@ -23,7 +23,7 @@ public class NuevoProducto extends javax.swing.JFrame implements ActionListener 
     public NuevoProducto() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Usuarios");
+        this.setTitle("Nuevo producto");
         menu = new JMenuBar();
         this.setJMenuBar(menu);
         opcion1 = new JMenu("Opciones");

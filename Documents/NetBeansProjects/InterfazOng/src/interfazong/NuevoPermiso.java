@@ -23,7 +23,7 @@ public class NuevoPermiso extends javax.swing.JFrame implements ActionListener {
     public NuevoPermiso() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Usuarios");
+        this.setTitle("Nuevo permiso");
         menu = new JMenuBar();
         this.setJMenuBar(menu);
         opcion1 = new JMenu("Opciones");
