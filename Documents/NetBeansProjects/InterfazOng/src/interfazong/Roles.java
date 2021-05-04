@@ -7,12 +7,15 @@ package interfazong;
 
 import componentead.Rol;
 import imagenes.LogicaNegocio;
+import imagenes.Render;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.JButton;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -64,17 +67,31 @@ public class Roles extends javax.swing.JFrame implements ActionListener {
     }
     
     private void refrescarTabla() {
-        DefaultTableModel dtm = new DefaultTableModel(); 
-        dtm.setColumnIdentifiers(new String[] {"ROL_ID","NOMBRE","DESCRIPCION","ACCIÓN1","ACCIÓN2"});
-        
+        DefaultTableModel dtm = new DefaultTableModel();
+        String color1 = "#81d4fa";
+        String color2 = "#ff5f5f";
+        tabla1.setDefaultRenderer(Object.class, new Render());
+        JButton btn1 = new JButton();
+        btn1.setName("m");
+        btn1.setText("Modificar");
+        btn1.setBackground(java.awt.Color.decode(color1));
+        JButton btn2 = new JButton();
+        btn2.setName("e");
+        btn2.setText("Eliminar");
+        btn2.setBackground(java.awt.Color.decode(color2));
+        dtm.setColumnIdentifiers(new String[] {"ROL_ID","NOMBRE","DESCRIPCION"});
         List<Rol> ListaRoles = LogicaNegocio.getListaRoles();
-        
+        dtm.addColumn("ACCION1", new Object[]{btn1});
+        dtm.addColumn("ACCION2", new Object[]{btn2});
         for (Rol rol : ListaRoles) {
             dtm.addRow(rol.toArrayString());
         }
         this.tabla1.setModel(dtm);
         //this.tabla2.setModel(dtm);
         
+    }
+    public boolean isCellEditable(int row, int column) {
+        return false;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -118,6 +135,11 @@ public class Roles extends javax.swing.JFrame implements ActionListener {
                 "Title 1", "Title 2", "Title 3", "Título 4", "Título 5"
             }
         ));
+        tabla1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla1MouseClicked(evt);
+            }
+        });
         pestaña1.setViewportView(tabla1);
 
         pestañas.addTab("Previous", pestaña1);
@@ -230,6 +252,27 @@ public class Roles extends javax.swing.JFrame implements ActionListener {
         nuevoRol.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_boton1ActionPerformed
+
+    private void tabla1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla1MouseClicked
+        // TODO add your handling code here:
+        int columna = tabla1.getColumnModel().getColumnIndexAtX(evt.getX());
+        int fila = evt.getY() / tabla1.getRowHeight();
+        if (fila < tabla1.getRowCount() && fila >= 0 && columna < tabla1.getColumnCount()) {
+            
+            Object value = tabla1.getValueAt(fila, columna);
+            if (value instanceof JButton) {
+                ((JButton)value).doClick();
+                JButton boton = (JButton) value;
+                
+                if (boton.getName().equals("m")) {
+                    JOptionPane.showConfirmDialog(null, "¿Desea modificar el rol seleccionado?", "Aviso", JOptionPane.OK_CANCEL_OPTION);
+                }
+                if (boton.getName().equals("e")) {
+                    JOptionPane.showConfirmDialog(null, "¿Desea eliminar el rol seleccionado?", "Aviso", JOptionPane.OK_CANCEL_OPTION);
+                }
+            }
+        }
+    }//GEN-LAST:event_tabla1MouseClicked
 
     /**
      * @param args the command line arguments
